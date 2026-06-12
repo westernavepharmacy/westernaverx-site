@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
+@theme {
+  /* Western Ave / WesteRxn brand palette */
+  --color-navy: #0a2a6b;
+  --color-navy-deep: #071f50;
+  --color-cyan: #006fb8;
+  --color-sky: #73bdea;
+  --color-sky-soft: #a6d6f4;
+  --color-ink: #1a2330;
+  --color-slate: #46566a;
+  --color-cloud: #f4f9fd;
+  --color-mist: #e2edf6;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #1a2330;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
 }
