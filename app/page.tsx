@@ -5,12 +5,12 @@ import { ProductCard } from "@/components/ProductCard";
 
 // Health & everyday categories (Beer & Wine is intentionally separated below as 21+)
 const CATEGORIES = [
-  { icon: "💊", title: "Cold, Flu & Pain", sub: "Over-the-counter relief", handle: "over-the-counter-medicine" },
-  { icon: "🧴", title: "Personal Care", sub: "Hygiene & everyday care", handle: "personal-care-hygiene" },
-  { icon: "🌿", title: "Vitamins", sub: "Daily health & wellness", handle: "vitamins-supplements" },
+  { icon: "🤧", title: "Cold, Flu & Pain", sub: "Over-the-counter relief", handle: "over-the-counter-medicine" },
+  { icon: "🧼", title: "Personal Care", sub: "Hygiene & everyday care", handle: "personal-care-hygiene" },
+  { icon: "🌱", title: "Vitamins", sub: "Daily health & wellness", handle: "vitamins-supplements" },
   { icon: "🩹", title: "First Aid", sub: "Cuts, scrapes & supplies", handle: "first-aid-medical-supplies" },
-  { icon: "🥤", title: "Hydration", sub: "Electrolytes & drinks", handle: "beverages" },
-  { icon: "🍼", title: "Baby & Child", sub: "Gentle care for little ones", handle: "baby-child" },
+  { icon: "💧", title: "Hydration", sub: "Electrolytes & drinks", handle: "beverages" },
+  { icon: "🧸", title: "Baby & Child", sub: "Gentle care for little ones", handle: "baby-child" },
 ];
 
 const TRUST = [
@@ -72,7 +72,7 @@ export default async function Home() {
       <section className="mx-auto max-w-[1180px] px-6 py-16 sm:py-20">
         <div className="mb-9 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-navy">Shop by category</h2>
-          <p className="mt-2 text-slate">Everything from your medicine cabinet to your fridge — in one trip.</p>
+          <p className="mt-2 text-slate">Everything you may need for sick days and good days alike — in one trip.</p>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {CATEGORIES.map((c) => (
