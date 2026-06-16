@@ -28,12 +28,9 @@ export default async function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0a2a6b_0%,#0a2a6b_35%,#006fb8_100%)] text-white">
         <div className="mx-auto max-w-[1180px] px-6 py-24 text-center sm:py-28">
-          <span className="text-[13px] font-semibold uppercase tracking-[0.18em] text-sky-soft">
-            Your neighborhood pharmacy
-          </span>
-          <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-bold leading-[1.07] tracking-tight sm:text-6xl">
-            Your pharmacy,{" "}
-            <span className="text-sky">now delivering.</span>
+          <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-[1.07] tracking-tight sm:text-6xl">
+            <span className="text-sky">Your pharmacy,</span>{" "}
+            now delivering.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/85">
             Over-the-counter essentials, vitamins, first aid, and cold beer &amp; wine — ordered
@@ -123,10 +120,10 @@ export default async function Home() {
           <div className="hidden md:block">
             <div className="overflow-hidden rounded-2xl border border-white/15 shadow-2xl ring-1 ring-white/10">
               <Image
-                src="/photos/beer-cooler.jpg"
-                alt="Beer and wine coolers stocked at Western Ave Pharmacy"
-                width={1100}
-                height={825}
+                src="/photos/beer-modelo.jpg"
+                alt="Cold Modelo beer on ice — beer & wine delivered by Western Ave Pharmacy"
+                width={1200}
+                height={800}
                 className="h-full w-full object-cover"
               />
             </div>
