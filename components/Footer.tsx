@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 export function Footer() {
   return (
     <footer className="bg-navy text-white mt-auto">
-      <div className="mx-auto max-w-[1180px] px-6 py-14 grid gap-10 md:grid-cols-4">
+      <div className="mx-auto max-w-[1180px] px-6 py-14 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2">
           <Logo dark className="h-8" />
           <p className="mt-4 max-w-xs text-sky-soft/90 text-[15px] leading-relaxed">
@@ -20,6 +20,16 @@ export function Footer() {
             <li><Link href="/long-term-care" className="hover:text-sky">Long-term care</Link></li>
             <li><Link href="/about" className="hover:text-sky">About us</Link></li>
             <li><Link href="/contact" className="hover:text-sky">Contact</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-sky">Legal</h3>
+          <ul className="mt-4 space-y-2.5 text-[15px] text-white/85">
+            <li><Link href="/policies/shipping-policy" className="hover:text-sky">Delivery &amp; shipping</Link></li>
+            <li><Link href="/policies/refund-policy" className="hover:text-sky">Returns &amp; refunds</Link></li>
+            <li><Link href="/policies/privacy-policy" className="hover:text-sky">Privacy policy</Link></li>
+            <li><Link href="/policies/terms-of-service" className="hover:text-sky">Terms of service</Link></li>
           </ul>
         </div>
 

@@ -116,3 +116,35 @@ export function money(m: Money): string {
 export function productUrl(handle: string): string {
   return `${STORE_URL}/products/${handle}`;
 }
+
+// --- Store policies (pulled from Shopify so legal stays in one source of truth) ---
+export type Policy = { title: string; handle: string; body: string };
+
+const POLICY_FIELDS = ["refundPolicy", "privacyPolicy", "termsOfService", "shippingPolicy"] as const;
+export type PolicyKey = (typeof POLICY_FIELDS)[number];
+
+export const POLICY_SLUGS: Record<string, PolicyKey> = {
+  "refund-policy": "refundPolicy",
+  "privacy-policy": "privacyPolicy",
+  "terms-of-service": "termsOfService",
+  "shipping-policy": "shippingPolicy",
+};
+
+export async function getPolicies(): Promise<Policy[]> {
+  const data = await storefront<{ shop: Record<PolicyKey, Policy | null> }>(
+    `query Policies {
+      shop {
+        refundPolicy { title handle body }
+        privacyPolicy { title handle body }
+        termsOfService { title handle body }
+        shippingPolicy { title handle body }
+      }
+    }`
+  );
+  return POLICY_FIELDS.map((k) => data.shop[k]).filter((p): p is Policy => !!p);
+}
+
+export async function getPolicy(slug: string): Promise<Policy | null> {
+  const all = await getPolicies();
+  return all.find((p) => p.handle === slug) ?? null;
+}
