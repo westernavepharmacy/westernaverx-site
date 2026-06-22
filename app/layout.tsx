@@ -19,12 +19,34 @@ export const metadata: Metadata = {
   description:
     "Western Ave Pharmacy in Glendale, CA — over-the-counter essentials, vitamins, first aid, and beer & wine delivered or ready for pickup, plus specialized long-term care pharmacy services for senior living facilities.",
   metadataBase: new URL("https://westernaverx.com"),
+  alternates: { canonical: "/" },
+  keywords: [
+    "pharmacy Glendale",
+    "Glendale CA pharmacy",
+    "over the counter medicine delivery Glendale",
+    "beer wine delivery Glendale",
+    "vitamins first aid Glendale",
+    "long-term care pharmacy Los Angeles",
+    "pharmacy near me",
+  ],
   openGraph: {
-    title: "Western Ave Pharmacy",
+    title: "Western Ave Pharmacy — Glendale's Neighborhood Pharmacy",
     description:
       "Your neighborhood pharmacy in Glendale — online ordering, local delivery, and long-term care services.",
+    url: "https://westernaverx.com",
+    siteName: "Western Ave Pharmacy",
     type: "website",
     locale: "en_US",
+    images: [
+      { url: "/og.jpg", width: 1200, height: 630, alt: "Western Ave Pharmacy — Glendale, CA" },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Western Ave Pharmacy — Glendale's Neighborhood Pharmacy",
+    description:
+      "Over-the-counter essentials, vitamins, first aid, and beer & wine — delivered or ready for pickup in Glendale.",
+    images: ["/og.jpg"],
   },
 };
 

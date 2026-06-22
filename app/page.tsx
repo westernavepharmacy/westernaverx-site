@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getProducts } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
+import { StructuredData } from "@/components/StructuredData";
 
 // Health & everyday categories (Beer & Wine is intentionally separated below as 21+)
 const CATEGORIES = [
@@ -25,6 +26,7 @@ export default async function Home() {
 
   return (
     <>
+      <StructuredData />
       {/* HERO */}
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0a2a6b_0%,#0a2a6b_35%,#006fb8_100%)] text-white">
         <div className="mx-auto max-w-[1180px] px-6 py-24 text-center sm:py-28">
