@@ -17,7 +17,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-mist">
       <div className="mx-auto max-w-[1180px] px-6 h-16 flex items-center justify-between">
-        <Link href="/" aria-label="Western Ave Pharmacy home" className="flex items-center">
+        <Link href="/home" aria-label="Western Ave Pharmacy home" className="flex items-center">
           <Logo className="h-8 w-auto" />
         </Link>
 
