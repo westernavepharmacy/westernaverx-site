@@ -23,6 +23,19 @@ export type Collection = {
   handle: string;
   products: Product[];
 };
+export type ProductDetail = {
+  id: string;
+  title: string;
+  handle: string;
+  productType: string;
+  vendor: string;
+  description: string;
+  descriptionHtml: string;
+  images: { url: string; altText: string | null }[];
+  price: Money;
+  available: boolean;
+  variantId: string | null; // numeric variant id, for the Shopify cart permalink
+};
 
 async function storefront<T>(query: string, variables: Record<string, unknown> = {}): Promise<T> {
   const res = await fetch(ENDPOINT, {
@@ -104,6 +117,85 @@ export async function getCollectionProducts(handle: string, first = 24): Promise
     handle: data.collection.handle,
     products: data.collection.products.edges.map((e) => normalize(e.node)),
   };
+}
+
+// Single product by handle — full detail for the on-site product page (SEO + buy handoff).
+export async function getProduct(handle: string): Promise<ProductDetail | null> {
+  const data = await storefront<{
+    product: {
+      id: string;
+      title: string;
+      handle: string;
+      productType: string;
+      vendor: string;
+      description: string;
+      descriptionHtml: string;
+      featuredImage: { url: string; altText: string | null } | null;
+      images: { edges: { node: { url: string; altText: string | null } }[] };
+      priceRange: { minVariantPrice: Money };
+      variants: { edges: { node: { id: string; availableForSale: boolean } }[] };
+    } | null;
+  }>(
+    `query Product($handle: String!) {
+      product(handle: $handle) {
+        id title handle productType vendor description descriptionHtml
+        featuredImage { url altText }
+        images(first: 6) { edges { node { url altText } } }
+        priceRange { minVariantPrice { amount currencyCode } }
+        variants(first: 1) { edges { node { id availableForSale } } }
+      }
+    }`,
+    { handle }
+  );
+  const p = data.product;
+  if (!p) return null;
+  const imgs = p.images.edges.map((e) => e.node);
+  const images = imgs.length ? imgs : p.featuredImage ? [p.featuredImage] : [];
+  const variantGid = p.variants.edges[0]?.node.id ?? null;
+  return {
+    id: p.id,
+    title: p.title,
+    handle: p.handle,
+    productType: p.productType,
+    vendor: p.vendor,
+    description: p.description,
+    descriptionHtml: p.descriptionHtml,
+    images,
+    price: p.priceRange.minVariantPrice,
+    available: p.variants.edges[0]?.node.availableForSale ?? true,
+    variantId: variantGid ? variantGid.split("/").pop() ?? null : null,
+  };
+}
+
+// Every product handle (paginated) — for the sitemap and static generation.
+export async function getAllProductHandles(): Promise<string[]> {
+  const handles: string[] = [];
+  let cursor: string | null = null;
+  for (let i = 0; i < 20; i++) {
+    const data: {
+      products: {
+        edges: { node: { handle: string } }[];
+        pageInfo: { hasNextPage: boolean; endCursor: string | null };
+      };
+    } = await storefront(
+      `query Handles($cursor: String) {
+        products(first: 250, after: $cursor) {
+          edges { node { handle } }
+          pageInfo { hasNextPage endCursor }
+        }
+      }`,
+      { cursor }
+    );
+    handles.push(...data.products.edges.map((e) => e.node.handle));
+    if (!data.products.pageInfo.hasNextPage) break;
+    cursor = data.products.pageInfo.endCursor;
+  }
+  return handles;
+}
+
+// Shopify cart permalink — adds the variant and lands on hosted checkout (keeps tax/delivery/age-gate).
+export function buyUrl(variantId: string | null, handle: string): string {
+  return variantId ? `${STORE_URL}/cart/${variantId}:1` : `${STORE_URL}/products/${handle}`;
 }
 
 export function money(m: Money): string {

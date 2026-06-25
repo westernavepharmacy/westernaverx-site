@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { money, productUrl, type Product } from "@/lib/shopify";
+import Link from "next/link";
+import { money, type Product } from "@/lib/shopify";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <a
-      href={productUrl(product.handle)}
-      target="_blank"
-      rel="noopener"
+    <Link
+      href={`/products/${product.handle}`}
       className="group block rounded-2xl border border-mist bg-white p-3 transition-shadow hover:shadow-[0_12px_28px_rgba(10,42,107,0.10)]"
     >
       <div className="relative aspect-square overflow-hidden rounded-xl bg-cloud">
@@ -29,6 +28,6 @@ export function ProductCard({ product }: { product: Product }) {
         <span className="font-bold text-navy">{money(product.price)}</span>
         {!product.available && <span className="text-xs text-slate/70">Out of stock</span>}
       </div>
-    </a>
+    </Link>
   );
 }
