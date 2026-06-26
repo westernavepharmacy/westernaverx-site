@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     "Western Ave Pharmacy in Glendale, CA — over-the-counter essentials, vitamins, first aid, and beer & wine delivered or ready for pickup, plus specialized long-term care pharmacy services for senior living facilities.",
   metadataBase: new URL("https://westernaverx.com"),
   alternates: { canonical: "/" },
+  verification: { google: "kGRDdwk3YzUlQwWEATJORWiEqmFk7YmA7O6kcUEfd7s" },
   keywords: [
     "pharmacy Glendale",
     "Glendale CA pharmacy",
