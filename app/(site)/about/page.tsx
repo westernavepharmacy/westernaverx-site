@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About Us",
   description:
     "Western Ave Pharmacy is an owner-operated neighborhood pharmacy in Glendale, CA — combining retail convenience with specialized long-term care services.",

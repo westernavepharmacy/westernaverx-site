@@ -20,6 +20,8 @@ const TRUST = [
   { icon: "🔒", label: "Licensed CA pharmacy" },
 ];
 
+export const metadata = { alternates: { canonical: "/home" } };
+
 export default async function Home() {
   const products = await getProducts(10).catch(() => []);
 

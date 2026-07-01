@@ -4,6 +4,7 @@ import { getProducts, getCollectionProducts, STORE_URL, type Product } from "@/l
 import { ProductCard } from "@/components/ProductCard";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/shop" },
   title: "Shop",
   description:
     "Shop over-the-counter medicine, vitamins, personal care, first aid, and beer & wine from Western Ave Pharmacy — delivered or ready for pickup in Glendale.",

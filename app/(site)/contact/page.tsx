@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description:
     "Contact Western Ave Pharmacy in Glendale, CA — retail, prescriptions, and long-term care pharmacy services. Call, email, or visit us.",

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/long-term-care" },
   title: "Long-Term Care Pharmacy",
   description:
     "Western Ave Pharmacy provides closed-door long-term care pharmacy services to assisted living, RCFEs, hospice, and home health across Los Angeles — same-day delivery, 24/7 pharmacist access, and compliance support.",

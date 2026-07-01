@@ -5,6 +5,8 @@ import { StructuredData } from "@/components/StructuredData";
 // Sean's Long-Term Care site (separate deployment for now; can move to ltc.westernaverx.com later)
 const LTC_URL = "https://westernaverx-gamma.vercel.app";
 
+export const metadata = { alternates: { canonical: "/" } };
+
 export default function Welcome() {
   return (
     <>
