@@ -12,12 +12,21 @@ export const metadata: Metadata = {
 
 const CATEGORIES = [
   { label: "All", handle: "" },
-  { label: "Cold, Flu & Pain", handle: "over-the-counter-medicine" },
-  { label: "Personal Care", handle: "personal-care-hygiene" },
-  { label: "Vitamins", handle: "vitamins-supplements" },
+  { label: "Pain Relief", handle: "pain-relief" },
+  { label: "Cold, Flu & Cough", handle: "cold-flu-cough" },
+  { label: "Allergy & Sinus", handle: "allergy-sinus" },
+  { label: "Digestive Health", handle: "digestive-health" },
+  { label: "Eye & Ear Care", handle: "eye-ear-care" },
+  { label: "Skin & Foot Care", handle: "skin-foot-care" },
+  { label: "Oral Care", handle: "oral-care" },
+  { label: "Feminine Care", handle: "feminine-care" },
+  { label: "Sexual Wellness", handle: "sexual-wellness" },
+  { label: "Sleep", handle: "sleep-aids" },
   { label: "First Aid", handle: "first-aid-medical-supplies" },
-  { label: "Hydration", handle: "beverages" },
+  { label: "Vitamins", handle: "vitamins-supplements" },
+  { label: "Personal Care", handle: "personal-care-hygiene" },
   { label: "Baby & Child", handle: "baby-child" },
+  { label: "Hydration", handle: "beverages" },
   { label: "Beer & Wine", handle: "beer-wine" },
 ];
 

@@ -5,11 +5,13 @@ import { ProductCard } from "@/components/ProductCard";
 
 // Health & everyday categories (Beer & Wine is intentionally separated below as 21+)
 const CATEGORIES = [
-  { icon: "🤧", title: "Cold, Flu & Pain", sub: "Over-the-counter relief", handle: "over-the-counter-medicine" },
-  { icon: "🧼", title: "Personal Care", sub: "Hygiene & everyday care", handle: "personal-care-hygiene" },
-  { icon: "🌱", title: "Vitamins", sub: "Daily health & wellness", handle: "vitamins-supplements" },
+  { icon: "💊", title: "Pain Relief", sub: "Tablets, patches & creams", handle: "pain-relief" },
+  { icon: "🤧", title: "Cold, Flu & Cough", sub: "Relief for sick days", handle: "cold-flu-cough" },
+  { icon: "🌼", title: "Allergy & Sinus", sub: "Antihistamines & sprays", handle: "allergy-sinus" },
+  { icon: "🫗", title: "Digestive Health", sub: "Heartburn, laxatives & more", handle: "digestive-health" },
+  { icon: "👁️", title: "Eye & Ear Care", sub: "Drops, lens care & earplugs", handle: "eye-ear-care" },
   { icon: "🩹", title: "First Aid", sub: "Cuts, scrapes & supplies", handle: "first-aid-medical-supplies" },
-  { icon: "💧", title: "Hydration", sub: "Electrolytes & drinks", handle: "beverages" },
+  { icon: "🌱", title: "Vitamins", sub: "Daily health & wellness", handle: "vitamins-supplements" },
   { icon: "🧸", title: "Baby & Child", sub: "Gentle care for little ones", handle: "baby-child" },
 ];
 
