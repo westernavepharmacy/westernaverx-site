@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProduct, getAllProductHandles, money, buyUrl } from "@/lib/shopify";
+import { getProduct, getAllProductHandles, money } from "@/lib/shopify";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 
 export const revalidate = 600;
 
@@ -116,14 +117,10 @@ export default async function ProductPage({ params }: Props) {
             )}
           </div>
 
-          <a
-            href={buyUrl(p.variantId, p.handle)}
-            target="_blank"
-            rel="noopener"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-cyan px-8 py-4 font-semibold text-white transition-colors hover:bg-navy sm:w-auto"
-          >
-            Add to cart →
-          </a>
+          <AddToCartButton
+            variantGid={p.variantId ? `gid://shopify/ProductVariant/${p.variantId}` : null}
+            available={p.available}
+          />
           <p className="mt-3 text-sm text-slate">
             🚚 Local delivery &amp; free in-store pickup in Glendale · Checkout secured by Shopify
           </p>

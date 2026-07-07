@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getProducts, getCollectionProducts, STORE_URL, type Product } from "@/lib/shopify";
+import { getAllProducts, getCollectionProducts, STORE_URL, type Product } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 
 export const metadata: Metadata = {
@@ -41,12 +41,13 @@ export default async function ShopPage({
   let products: Product[] = [];
   let heading = "All products";
   if (active) {
-    const col = await getCollectionProducts(active, 48).catch(() => null);
+    const col = await getCollectionProducts(active).catch(() => null);
     products = col?.products ?? [];
     heading = col?.title ?? "Products";
   } else {
-    products = await getProducts(48).catch(() => []);
+    products = await getAllProducts().catch(() => []);
   }
+  if (products.length) heading += ` (${products.length})`;
 
   return (
     <>

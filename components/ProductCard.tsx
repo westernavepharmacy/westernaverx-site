@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { money, type Product } from "@/lib/shopify";
+import { CardAddButton } from "./cart/AddToCartButton";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
@@ -26,7 +27,11 @@ export function ProductCard({ product }: { product: Product }) {
       <h3 className="mt-3 line-clamp-2 px-1 text-[14px] leading-snug text-ink">{product.title}</h3>
       <div className="mt-1 flex items-center justify-between px-1">
         <span className="font-bold text-navy">{money(product.price)}</span>
-        {!product.available && <span className="text-xs text-slate/70">Out of stock</span>}
+        {product.available ? (
+          <CardAddButton variantGid={product.variantId} available={product.available} />
+        ) : (
+          <span className="text-xs text-slate/70">Out of stock</span>
+        )}
       </div>
     </Link>
   );

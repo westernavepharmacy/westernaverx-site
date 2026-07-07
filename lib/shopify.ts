@@ -17,6 +17,8 @@ export type Product = {
   featuredImage: { url: string; altText: string | null } | null;
   price: Money;
   available: boolean;
+  variantId: string | null; // ProductVariant GID for cart mutations
+  tags: string[];
 };
 export type Collection = {
   title: string;
@@ -59,9 +61,10 @@ const PRODUCT_FRAGMENT = `
   title
   handle
   productType
+  tags
   featuredImage { url altText }
   priceRange { minVariantPrice { amount currencyCode } }
-  variants(first: 1) { edges { node { availableForSale } } }
+  variants(first: 1) { edges { node { id availableForSale } } }
 `;
 
 type RawProduct = {
@@ -69,9 +72,10 @@ type RawProduct = {
   title: string;
   handle: string;
   productType: string;
+  tags: string[];
   featuredImage: { url: string; altText: string | null } | null;
   priceRange: { minVariantPrice: Money };
-  variants: { edges: { node: { availableForSale: boolean } }[] };
+  variants: { edges: { node: { id: string; availableForSale: boolean } }[] };
 };
 
 function normalize(p: RawProduct): Product {
@@ -80,9 +84,11 @@ function normalize(p: RawProduct): Product {
     title: p.title,
     handle: p.handle,
     productType: p.productType,
+    tags: p.tags ?? [],
     featuredImage: p.featuredImage,
     price: p.priceRange.minVariantPrice,
     available: p.variants.edges[0]?.node.availableForSale ?? true,
+    variantId: p.variants.edges[0]?.node.id ?? null,
   };
 }
 
@@ -98,7 +104,33 @@ export async function getProducts(first = 12): Promise<Product[]> {
   return data.products.edges.map((e) => normalize(e.node));
 }
 
-export async function getCollectionProducts(handle: string, first = 24): Promise<Collection | null> {
+// Full catalog for the "All" shop view — pages through every product (250/page).
+export async function getAllProducts(): Promise<Product[]> {
+  const all: Product[] = [];
+  let cursor: string | null = null;
+  for (let i = 0; i < 8; i++) {
+    const data: {
+      products: {
+        edges: { node: RawProduct }[];
+        pageInfo: { hasNextPage: boolean; endCursor: string | null };
+      };
+    } = await storefront(
+      `query AllProducts($cursor: String) {
+        products(first: 250, after: $cursor, sortKey: TITLE) {
+          edges { node { ${PRODUCT_FRAGMENT} } }
+          pageInfo { hasNextPage endCursor }
+        }
+      }`,
+      { cursor }
+    );
+    all.push(...data.products.edges.map((e) => normalize(e.node)));
+    if (!data.products.pageInfo.hasNextPage) break;
+    cursor = data.products.pageInfo.endCursor;
+  }
+  return all;
+}
+
+export async function getCollectionProducts(handle: string, first = 250): Promise<Collection | null> {
   const data = await storefront<{
     collection: { title: string; handle: string; products: { edges: { node: RawProduct }[] } } | null;
   }>(

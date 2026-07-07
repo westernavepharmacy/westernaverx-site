@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Logo } from "./Logo";
+import { CartButton } from "./cart/CartButton";
 
 const NAV = [
   { label: "Shop", href: "/shop" },
@@ -38,23 +39,27 @@ export function Header() {
           >
             Order online
           </Link>
+          <CartButton />
         </nav>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 text-navy"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-            ) : (
-              <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
-            )}
-          </svg>
-        </button>
+        {/* Mobile: cart + menu toggle */}
+        <div className="md:hidden flex items-center gap-1 -mr-2">
+          <CartButton />
+          <button
+            className="inline-flex items-center justify-center w-10 h-10 text-navy"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+              ) : (
+                <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
