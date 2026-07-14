@@ -174,6 +174,10 @@ export function CartDrawer() {
               <p className="mt-2.5 text-center text-xs text-slate">
                 Taxes &amp; delivery calculated at checkout · Secured by Shopify
               </p>
+              <p className="mt-1.5 text-center text-xs font-medium text-slate">
+                🚚 Delivery available within ~20 miles of Glendale, CA — or free
+                in-store pickup. We don&apos;t ship nationwide yet.
+              </p>
             </div>
           </>
         )}
