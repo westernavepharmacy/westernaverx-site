@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProduct, getAllProductHandles, money } from "@/lib/shopify";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { TrustBadges } from "@/components/TrustBadges";
 
 export const revalidate = 600;
 
@@ -124,6 +125,8 @@ export default async function ProductPage({ params }: Props) {
           <p className="mt-3 text-sm text-slate">
             🚚 Local delivery &amp; free in-store pickup in Glendale · Checkout secured by Shopify
           </p>
+
+          <TrustBadges />
 
           {p.descriptionHtml && (
             <div

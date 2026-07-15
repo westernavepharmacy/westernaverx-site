@@ -43,6 +43,24 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
+        <div className="mx-auto max-w-[1180px] px-6 py-4 flex flex-wrap items-center gap-x-2 gap-y-1.5">
+          <span className="mr-1 text-[11px] font-medium uppercase tracking-wide text-white/50">
+            We accept
+          </span>
+          {["Visa", "Mastercard", "Amex", "Discover", " Pay", "G Pay", "Shop Pay"].map((m) => (
+            <span
+              key={m}
+              className="inline-flex h-6 items-center rounded border border-white/15 bg-white/5 px-2 text-[11.5px] font-semibold leading-none text-white/80"
+            >
+              {m}
+            </span>
+          ))}
+          <span className="ml-auto hidden text-[11.5px] text-white/50 sm:inline">
+            🔒 Secure SSL checkout · powered by Shopify
+          </span>
+        </div>
+      </div>
+      <div className="border-t border-white/10">
         <div className="mx-auto max-w-[1180px] px-6 py-5 flex flex-col sm:flex-row gap-2 justify-between text-[13px] text-white/60">
           <span>© {new Date().getFullYear()} Western Ave Pharmacy. All rights reserved.</span>
           <span>Licensed California pharmacy · 21+ ID required for beer &amp; wine.</span>
