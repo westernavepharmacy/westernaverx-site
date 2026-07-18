@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProduct, getAllProductHandles, money } from "@/lib/shopify";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { ProductGallery } from "@/components/ProductGallery";
 import { TrustBadges } from "@/components/TrustBadges";
 
 export const revalidate = 600;
@@ -46,7 +46,6 @@ export default async function ProductPage({ params }: Props) {
   const p = await getProduct(handle).catch(() => null);
   if (!p) notFound();
 
-  const img = p.images[0];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -87,19 +86,8 @@ export default async function ProductPage({ params }: Props) {
       </nav>
 
       <div className="grid gap-10 md:grid-cols-2">
-        <div className="overflow-hidden rounded-3xl border border-mist bg-cloud">
-          {img ? (
-            <Image
-              src={img.url}
-              alt={img.altText ?? p.title}
-              width={900}
-              height={900}
-              className="h-full w-full object-contain p-4"
-              priority
-            />
-          ) : (
-            <div className="flex aspect-square items-center justify-center text-6xl">💊</div>
-          )}
+        <div>
+          <ProductGallery images={p.images} title={p.title} />
         </div>
 
         <div>
