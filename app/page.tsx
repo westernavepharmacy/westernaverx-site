@@ -28,7 +28,7 @@ export default function Welcome() {
             className="group flex flex-col rounded-3xl border border-white/15 bg-white/[0.07] p-8 backdrop-blur transition-all hover:-translate-y-1 hover:border-sky hover:bg-white/[0.12]"
           >
             <span className="text-5xl">🛒</span>
-            <h2 className="mt-5 text-2xl font-bold">Retail Pharmacy</h2>
+            <h2 className="mt-5 text-2xl font-bold">Online Shop</h2>
             <p className="mt-2 flex-1 leading-relaxed text-white/75">
               Shop over-the-counter essentials, vitamins, first aid, and cold beer &amp; wine — with
               local delivery and free pickup in Glendale.
@@ -45,7 +45,7 @@ export default function Welcome() {
             className="group flex flex-col rounded-3xl border border-white/15 bg-white/[0.07] p-8 backdrop-blur transition-all hover:-translate-y-1 hover:border-sky hover:bg-white/[0.12]"
           >
             <span className="text-5xl">🏥</span>
-            <h2 className="mt-5 text-2xl font-bold">Long-Term Care</h2>
+            <h2 className="mt-5 text-2xl font-bold">Pharmacy</h2>
             <p className="mt-2 flex-1 leading-relaxed text-white/75">
               Closed-door pharmacy for senior living &amp; care facilities — same-day delivery, 24/7
               pharmacist access, and full compliance support.
