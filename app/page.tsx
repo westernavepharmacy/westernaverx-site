@@ -47,8 +47,8 @@ export default function Welcome() {
             <span className="text-5xl">🏥</span>
             <h2 className="mt-5 text-2xl font-bold">Pharmacy</h2>
             <p className="mt-2 flex-1 leading-relaxed text-white/75">
-              Combo pharmacy servicing retail and long-term care patients — prescriptions,
-              transfers, same-day delivery, and 24/7 pharmacy support.
+              Retail/LTC combo pharmacy servicing patients locally and in the greater Los Angeles
+              community. Full prescription services, same-day delivery, 24/7 support.
             </p>
             <span className="mt-6 inline-flex items-center gap-2 font-semibold text-sky group-hover:text-white">
               Enter Pharmacy
