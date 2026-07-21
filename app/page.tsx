@@ -47,11 +47,12 @@ export default function Welcome() {
             <span className="text-5xl">🏥</span>
             <h2 className="mt-5 text-2xl font-bold">Pharmacy</h2>
             <p className="mt-2 flex-1 leading-relaxed text-white/75">
-              Closed-door pharmacy for senior living &amp; care facilities — same-day delivery, 24/7
-              pharmacist access, and full compliance support.
+              A full-service combo pharmacy caring for both retail and long-term care patients —
+              prescriptions, transfers, same-day delivery, and dedicated support for senior living
+              &amp; care facilities.
             </p>
             <span className="mt-6 inline-flex items-center gap-2 font-semibold text-sky group-hover:text-white">
-              Enter LTC services
+              Enter Pharmacy
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </span>
           </a>
