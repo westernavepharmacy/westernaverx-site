@@ -47,9 +47,8 @@ export default function Welcome() {
             <span className="text-5xl">🏥</span>
             <h2 className="mt-5 text-2xl font-bold">Pharmacy</h2>
             <p className="mt-2 flex-1 leading-relaxed text-white/75">
-              A full-service combo pharmacy caring for both retail and long-term care patients —
-              prescriptions, transfers, same-day delivery, and dedicated support for senior living
-              &amp; care facilities.
+              Combo pharmacy servicing retail and long-term care patients — prescriptions,
+              transfers, same-day delivery, and 24/7 pharmacy support.
             </p>
             <span className="mt-6 inline-flex items-center gap-2 font-semibold text-sky group-hover:text-white">
               Enter Pharmacy
