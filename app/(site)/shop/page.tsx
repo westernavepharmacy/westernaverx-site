@@ -26,7 +26,7 @@ const CATEGORIES = [
   { label: "Vitamins", handle: "vitamins-supplements" },
   { label: "Personal Care", handle: "personal-care-hygiene" },
   { label: "Baby & Child", handle: "baby-child" },
-  { label: "Hydration", handle: "beverages" },
+  { label: "Beverages", handle: "beverages" },
   { label: "Beer & Wine", handle: "beer-wine" },
 ];
 

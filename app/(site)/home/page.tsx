@@ -13,6 +13,7 @@ const CATEGORIES = [
   { icon: "🩹", title: "First Aid", sub: "Cuts, scrapes & supplies", handle: "first-aid-medical-supplies" },
   { icon: "🍊", title: "Vitamins", sub: "Daily health & wellness", handle: "vitamins-supplements" },
   { icon: "🍼", title: "Baby & Child", sub: "Gentle care for little ones", handle: "baby-child" },
+  { icon: "🥤", title: "Beverages", sub: "Water, coffee, soda & more", handle: "beverages" },
 ];
 
 const TRUST = [
