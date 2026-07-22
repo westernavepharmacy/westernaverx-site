@@ -26,7 +26,11 @@ const TRUST = [
 export const metadata = { alternates: { canonical: "/home" } };
 
 export default async function Home() {
-  const products = await getProducts(10).catch(() => []);
+  // Alcohol stays off the homepage (and out of Google's thumbnail picks) — it lives in its own 21+ section
+  const ALCOHOL_TAGS = new Set(["alcohol", "21-plus", "beer", "wine"]);
+  const products = (await getProducts(24).catch(() => [])).filter(
+    (p) => !p.tags.some((t) => ALCOHOL_TAGS.has(t.toLowerCase()))
+  );
 
   return (
     <>

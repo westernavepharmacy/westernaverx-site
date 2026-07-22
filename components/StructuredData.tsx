@@ -14,7 +14,10 @@ const data = {
   priceRange: "$$",
   currenciesAccepted: "USD",
   paymentAccepted: "Cash, Credit Card, Debit Card, Apple Pay, Google Pay",
-  image: "https://westernaverx.com/og.jpg",
+  image: [
+    "https://westernaverx.com/photos/storefront.jpg",
+    "https://westernaverx.com/og.jpg",
+  ],
   logo: "https://westernaverx.com/logo-primary.svg",
   address: {
     "@type": "PostalAddress",
