@@ -129,8 +129,8 @@ export default async function Home() {
           <div className="hidden md:block">
             <div className="overflow-hidden rounded-2xl border border-white/15 shadow-2xl ring-1 ring-white/10">
               <Image
-                src="/photos/beer-modelo.jpg"
-                alt="Cold Modelo beer on ice — beer & wine delivered by Western Ave Pharmacy"
+                src="/photos/storefront-night.jpg"
+                alt="Western Ave Pharmacy storefront at night — 501 Western Ave, Glendale"
                 width={1200}
                 height={800}
                 className="h-full w-full object-cover"
